@@ -1,0 +1,78 @@
+{
+  "skill": "build-skill",
+  "cases": [
+    {
+      "id": "build-cc-skill",
+      "prompt": "I keep having to remind you how we run migrations in this repo. Build a skill for it.",
+      "should_trigger": true,
+      "assertions": [
+        "States a Step 0 verdict on whether this should be a skill at all",
+        "Routes to cc rather than runtime",
+        "Asks for or gathers the specific things the agent gets wrong today before writing",
+        "Produces a description containing literal trigger phrases, not just a statement of what the skill does",
+        "Runs validate-skill.cjs and reports it exits 0",
+        "Creates evals/evals.json for the new skill with at least one should_trigger false case"
+      ]
+    },
+    {
+      "id": "build-runtime-skill",
+      "prompt": "Create a new Ask Cuvama skill that helps the chat agent summarise a discovery's open risks.",
+      "should_trigger": true,
+      "assertions": [
+        "Routes to runtime",
+        "Reads reference/runtime-skill-conventions.md before authoring",
+        "Does not add a scripts/ directory",
+        "Body never names another skill",
+        "Uses propose-then-apply if the skill mutates state, or states that it is read-only"
+      ]
+    },
+    {
+      "id": "diagnose-not-triggering",
+      "prompt": "Why isn't my deploy-check skill triggering? I have to type the slash command every time.",
+      "should_trigger": true,
+      "assertions": [
+        "Reads reference/diagnose-and-revise.md before editing anything",
+        "Names the symptom row before proposing a fix",
+        "Identifies the description as the likely cause and checks for listing truncation",
+        "Does not paste the failing query keywords in verbatim"
+      ]
+    },
+    {
+      "id": "revise-existing",
+      "prompt": "The chat-analysis skill has gotten bloated and vague. Improve it.",
+      "should_trigger": true,
+      "assertions": [
+        "Treats this as revision, not authoring",
+        "Runs a deletion pass before adding anything",
+        "Ends with a shorter SKILL.md, or justifies each addition against a failure"
+      ]
+    },
+    {
+      "id": "kill-gate-claude-md",
+      "prompt": "Make a skill that reminds you to always use pnpm instead of npm in this repo.",
+      "should_trigger": true,
+      "assertions": [
+        "Fails this at Step 0 and recommends a CLAUDE.md line instead",
+        "Does not build the skill anyway"
+      ]
+    },
+    {
+      "id": "near-miss-subagent",
+      "prompt": "Write me a subagent that reviews TSX files for accessibility problems.",
+      "should_trigger": false,
+      "note": "Subagent authoring is not skill authoring. build-skill may be consulted for the Step 0 distinction but should not claim the task."
+    },
+    {
+      "id": "near-miss-use-a-skill",
+      "prompt": "Use the code-review skill on my current diff.",
+      "should_trigger": false,
+      "note": "Invoking a skill, not building one."
+    },
+    {
+      "id": "near-miss-mcp-server",
+      "prompt": "Build an MCP server that exposes our discovery API to Claude.",
+      "should_trigger": false,
+      "note": "MCP server authoring shares the word build but none of the format."
+    }
+  ]
+}

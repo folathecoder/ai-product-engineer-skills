@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Edit(plans/**)",
+      "Write(plans/**)",
+      "WebFetch",
+      "WebSearch",
+      "TaskOutput",
+      "Skill(update-config:*)",
+      "Bash(node:*)",
+      "Bash(npx:*)",
+      "Bash(npm:*)",
+      "Bash(git:*)",
+      "Bash(bash:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(wc:*)",
+      "Bash(curl:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(where:*)",
+      "Bash(claude:*)",
+      "Bash(pip:*)",
+      "Bash(python:*)",
+      "mcp__discovery__*",
+      "mcp__claude_ai_temenos-value-case__*",
+      "mcp__temenos-value-case__*",
+      "mcp__claude_ai_jaggaer-value-case__*",
+      "mcp__jaggaer-value-case__*",
+      "mcp__claude_ai_Atlassian__*"
+    ]
+  }
+}

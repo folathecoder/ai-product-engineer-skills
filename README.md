@@ -1,58 +1,51 @@
 # AI Product Engineer Skills
 
-A curated repository of production-grade, authoritative AI agent skills designed for modern software development, architecture, and code review.
+A curated repository of production-grade, authoritative AI agent skills designed for modern software engineering, architecture, and code review.
 
-Each skill in this repository is built to turn any AI coding agent into a principal-level domain specialist, equipped with deep mechanical sympathy for the underlying frameworks, strict safety and boundary discipline, and live-documentation verification protocols to prevent obsolescence.
+Each skill in this repository is crafted to turn any AI coding agent into a principal-level specialist, equipped with mechanical sympathy for underlying compilers and runtimes, strict safety and boundary discipline, and live-documentation verification protocols to prevent obsolescence.
 
 ---
 
-## Available Skills
+## Available Skills Matrix
 
 | Skill | Focus | Target Versions | Description |
 |---|---|---|---|
-| [`nextjs-principal-engineer`](./skills/nextjs-principal-engineer/) | Full-Stack Architecture, Development & Code Review | Next.js 14, 15, 16+ (React 19+) | Transforms any AI agent into a principal Next.js & React engineer. Covers App Router, Cache Components (`use cache`), Partial Prerendering (PPR), Server Actions, Data Access Layer (DAL), zero-trust security, Core Web Vitals, and P0–P3 severity-ranked code reviews. |
+| [`nextjs-principal-engineer`](./skills/nextjs-principal-engineer/) | Full-Stack Architecture, Development & Code Review | Next.js 14, 15, 16+ (React 19+) | App Router, Cache Components (`use cache`), Partial Prerendering (PPR), Server Actions, Data Access Layer (DAL), zero-trust security, Core Web Vitals, and P0–P3 code reviews. |
+| [`typescript-principal-engineer`](./skills/typescript-principal-engineer/) | Type System Architecture, Modeling & Review | TypeScript 5.0–5.8+ | Zero-any soundness, Branded/Nominal types, Discriminated Unions with exhaustiveness, contravariant variance, `satisfies`, and strict compiler configurations. |
+| [`nodejs-principal-engineer`](./skills/nodejs-principal-engineer/) | High-Throughput Runtimes, I/O & Review | Node.js 20, 22, 24+ LTS | Libuv event loop mastery, stream backpressure, `node:stream/promises`, `AsyncLocalStorage`, native TypeScript type stripping, and Node permission model. |
+| [`javascript-principal-engineer`](./skills/javascript-principal-engineer/) | Language Mechanics, V8 Optimization & Review | ECMAScript ES2024–ES2026+ | V8 hidden classes (Shapes), Inline Caches (monomorphic optimization), garbage collection lifecycles, prototype pollution defense, and modern TC39 features. |
 
 ---
 
-## Skill Spotlight: `nextjs-principal-engineer`
+## Architectural Philosophy
 
-Located in [`skills/nextjs-principal-engineer/`](./skills/nextjs-principal-engineer/).
+Every skill in this repository adheres to four uncompromising pillars:
 
-### What It Does
-- **Pre-Flight Version & Docs Protocol**: Inspects `package.json` to identify exact Next.js and React versions. Queries official Next.js documentation live via `llms.txt` and `.md` endpoints whenever an API is unfamiliar or newer than Next.js 16.4, ensuring the skill never gets outdated.
-- **Server Components Discipline**: Enforces Server Components by default, pushing `'use client'` strictly to leaf nodes and preventing client bundle bloat.
-- **Next.js 16 Architecture**: Built for the latest paradigms including Cache Components (`cacheComponents: true`), `'use cache'`, `cacheLife()`, `updateTag()` (read-your-writes), `revalidateTag(tag, profile)`, and the Node.js `proxy.ts` network boundary.
-- **Zero-Trust Security**: Implements the Data Access Layer (DAL) pattern with `import 'server-only'`, React Taint APIs, and strict authorization on every Server Action.
-- **Core Web Vitals Obsession**: Enforces LCP < 2.5s, CLS < 0.1, and INP < 200ms through streaming Suspense boundaries, `next/image` security defaults, and `next/font` zero-CLS variable loading.
-- **Severity-Ranked Code Reviews**: Delivers structured pull request audits using a battle-tested P0 (Critical/Blocker) through P3 (Nit) taxonomy with copy-pasteable diffs.
-
-### Reference Library Bundled with the Skill
-- [`references/version-matrix.md`](./skills/nextjs-principal-engineer/references/version-matrix.md): Invariant mapping across Next.js 14, 15, 16+, breaking changes, and live docs endpoints.
-- [`references/code-review-checklist.md`](./skills/nextjs-principal-engineer/references/code-review-checklist.md): Comprehensive checklist categorized by severity.
-- [`references/architecture-patterns.md`](./skills/nextjs-principal-engineer/references/architecture-patterns.md): DAL implementation, boundary slot patterns, authentication, and React 19 forms.
-- [`references/caching-and-data-fetching.md`](./skills/nextjs-principal-engineer/references/caching-and-data-fetching.md): Cache Components, `'use cache'`, profiles, and tag invalidation matrix.
-- [`references/performance-and-vitals.md`](./skills/nextjs-principal-engineer/references/performance-and-vitals.md): Streaming HTTP, Turbopack analysis, and media optimization.
-- [`references/common-anti-patterns.md`](./skills/nextjs-principal-engineer/references/common-anti-patterns.md): The top 25 Next.js traps and canonical fixes.
+1. **Pre-Flight Version & Docs Protocol (Never Outdated)**: Before writing code or auditing a PR, the agent inspects `package.json` to identify installed runtime/compiler versions. When working with unfamiliar or newer APIs, the agent queries official documentation live (MDN, Node.js API, TypeScript Handbook, Next.js docs) rather than guessing signatures.
+2. **Dual-Mode Operation**: Dedicated workflows for **Feature Development** (building clean, idiomatic architectures from scratch) and **Code Review** (structured audits using a P0 Blocker → P3 Polish taxonomy with copy-pasteable diffs).
+3. **Progressive Disclosure**: A concise, actionable `SKILL.md` supported by a deep `references/` directory containing checklists, design patterns, and anti-pattern catalogs.
+4. **Interoperability**: Skills seamlessly reference each other across the stack (e.g. Next.js leveraging TypeScript and JavaScript principles; upcoming Frontend/Backend synthesizers orchestrating the foundation).
 
 ---
 
 ## Installation & Usage in OpenCode
 
-### User-Level (Global across all projects)
-Copy the skill folder into your OpenCode configuration directory:
+### User-Level (Global across all projects on your machine)
+Copy the skills into your OpenCode configuration directory:
 
 ```bash
-mkdir -p ~/.config/opencode/skills/nextjs-principal-engineer
-cp -R skills/nextjs-principal-engineer/* ~/.config/opencode/skills/nextjs-principal-engineer/
+# Install all skills
+mkdir -p ~/.config/opencode/skills
+cp -R skills/* ~/.config/opencode/skills/
 ```
 
-OpenCode will automatically discover the skill and make it available in your session:
+OpenCode will automatically discover all installed skills:
 ```markdown
 <available_skills>
-  <skill>
-    <id>nextjs-principal-engineer</id>
-    <name>nextjs-principal-engineer</name>
-  </skill>
+  <skill><id>nextjs-principal-engineer</id></skill>
+  <skill><id>typescript-principal-engineer</id></skill>
+  <skill><id>nodejs-principal-engineer</id></skill>
+  <skill><id>javascript-principal-engineer</id></skill>
 </available_skills>
 ```
 
@@ -60,9 +53,21 @@ OpenCode will automatically discover the skill and make it available in your ses
 To scope a skill to a specific repository, place it inside `.opencode/skills/`:
 
 ```bash
-mkdir -p .opencode/skills/nextjs-principal-engineer
-cp -R path/to/skills/nextjs-principal-engineer/* .opencode/skills/nextjs-principal-engineer/
+mkdir -p .opencode/skills
+cp -R path/to/skills/<skill-name> .opencode/skills/
 ```
+
+---
+
+## Roadmap
+
+- [x] `nextjs-principal-engineer` (Full-Stack React Framework)
+- [x] `typescript-principal-engineer` (Foundational Language)
+- [x] `nodejs-principal-engineer` (Foundational Runtime)
+- [x] `javascript-principal-engineer` (Language Engine & V8)
+- [ ] `frontend-principal-engineer` (Domain Synthesizer: orchestrates JS, TS, React/Next.js, CSS, Web Vitals, A11y)
+- [ ] `backend-principal-engineer` (Domain Synthesizer: orchestrates Node.js, TS, Databases, Distributed Systems, Queues)
+- [ ] `software-architect` (System Strategist: ADRs, System Boundaries, Scalability, Threat Modeling)
 
 ---
 

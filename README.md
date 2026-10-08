@@ -10,7 +10,9 @@ Each skill in this repository is crafted to turn any AI coding agent into a prin
 
 | Skill | Focus | Target Scope | Description |
 |---|---|---|---|
-| [`qa-principal-engineer`](./skills/qa-principal-engineer/) | Quality Assurance, Automated Tests & Exploratory Testing | Universal (Web, API, Components) | Requirements-driven test planning (RTM), automated suites across the pyramid (Playwright, Cypress, Storybook, Vitest/Jest, Pytest), intense adversarial manual testing via Playwright MCP, and defect tracking. |
+| [`frontend-principal-engineer`](./skills/frontend-principal-engineer/) | Frontend Synthesis, State & Web Vitals | React / Next.js / Modern Web Platform | Synthesizes JS, TS, React/Next.js, modern CSS architecture, Core Web Vitals (INP < 200ms, LCP < 2.5s, CLS < 0.1), WCAG 2.2 AA accessibility, and 4-quadrant state management (Server, Client, URL, Local). |
+| [`backend-principal-engineer`](./skills/backend-principal-engineer/) | Scalable Services, Data Layers & Distributed Systems | Node.js / TypeScript / PostgreSQL / Redis | Synthesizes Node.js runtimes, TypeScript data access layers, relational database engineering (PostgreSQL), idempotency keys, rate limiting, distributed caching, and at-least-once queues (BullMQ/Kafka). |
+| [`qa-principal-engineer`](./skills/qa-principal-engineer/) | Quality Assurance, Automated Tests & Exploratory QA | Universal (Web, API, Components) | Requirements-driven test planning (RTM), automated suites across the pyramid (Playwright, Cypress, Storybook, Vitest/Jest, Pytest), intense adversarial manual testing via Playwright MCP, and defect tracking. |
 | [`security-principal-engineer`](./skills/security-principal-engineer/) | Application Security (AppSec), Threat Modeling & Review | OWASP Developer Guide v4.1.7, ASVS 4.0, Top 10 for LLMs/Agents | Grounded in the OWASP Developer Guide. Enforces Proactive Controls (C1–C10), STRIDE threat modeling, zero-trust data access, input validation, authenticated cryptography, safe agentic tool design, and P0–P3 AppSec reviews. |
 | [`onboarding-engineer`](./skills/onboarding-engineer/) | Codebase Reconnaissance, DevEx & Bootstrapping | Universal (Any Repo/Monorepo) | Rapid cold-start repository reconnaissance, deterministic local environment setup, baseline health verification (types, lint, tests, build), and architectural reverse-engineering. |
 | [`nextjs-principal-engineer`](./skills/nextjs-principal-engineer/) | Full-Stack Architecture, Development & Review | Next.js 14, 15, 16+ (React 19+) | App Router, Cache Components (`use cache`), Partial Prerendering (PPR), Server Actions, Data Access Layer (DAL), zero-trust security, Core Web Vitals, and P0–P3 code reviews. |
@@ -27,7 +29,7 @@ Every skill in this repository adheres to four uncompromising pillars:
 1. **Pre-Flight Version & Docs Protocol (Never Outdated)**: Before writing code or auditing a PR, the agent inspects `package.json` to identify installed runtime/compiler versions. When working with unfamiliar or newer APIs, the agent queries official documentation live (OWASP/OpenCRE, MDN, Node.js API, TypeScript Handbook, Next.js docs) rather than guessing signatures.
 2. **Dual-Mode Operation**: Dedicated workflows for **Feature Development** (building clean, idiomatic architectures from scratch) and **Code Review / QA** (structured audits using a P0 Blocker → P3 Polish taxonomy with copy-pasteable diffs).
 3. **Progressive Disclosure**: A concise, actionable `SKILL.md` supported by a deep `references/` directory containing checklists, design patterns, and anti-pattern catalogs.
-4. **Interoperability**: Skills seamlessly reference each other across the stack (e.g. `qa-principal-engineer` validating `nextjs-principal-engineer` and `security-principal-engineer` assertions; upcoming Frontend/Backend synthesizers orchestrating the foundation).
+4. **Interoperability**: Skills seamlessly orchestrate each other across the stack (e.g. `frontend-principal-engineer` and `backend-principal-engineer` synthesizing `nextjs-principal-engineer`, `typescript-principal-engineer`, and `security-principal-engineer`).
 
 ---
 
@@ -45,6 +47,8 @@ cp -R skills/* ~/.config/opencode/skills/
 OpenCode will automatically discover all installed skills:
 ```markdown
 <available_skills>
+  <skill><id>frontend-principal-engineer</id></skill>
+  <skill><id>backend-principal-engineer</id></skill>
   <skill><id>qa-principal-engineer</id></skill>
   <skill><id>security-principal-engineer</id></skill>
   <skill><id>onboarding-engineer</id></skill>
@@ -67,6 +71,8 @@ cp -R path/to/skills/<skill-name> .opencode/skills/
 
 ## Roadmap
 
+- [x] `frontend-principal-engineer` (Domain Synthesizer: orchestrates JS, TS, React/Next.js, CSS, Web Vitals, A11y)
+- [x] `backend-principal-engineer` (Domain Synthesizer: orchestrates Node.js, TS, Databases, Distributed Systems, Queues)
 - [x] `qa-principal-engineer` (Automated Tests, Playwright MCP Manual Testing, Test Planning)
 - [x] `security-principal-engineer` (AppSec, OWASP Guide, Threat Modeling, Agentic Security)
 - [x] `onboarding-engineer` (Codebase Reconnaissance & DevEx)
@@ -74,8 +80,6 @@ cp -R path/to/skills/<skill-name> .opencode/skills/
 - [x] `typescript-principal-engineer` (Foundational Language)
 - [x] `nodejs-principal-engineer` (Foundational Runtime)
 - [x] `javascript-principal-engineer` (Language Engine & V8)
-- [ ] `frontend-principal-engineer` (Domain Synthesizer: orchestrates JS, TS, React/Next.js, CSS, Web Vitals, A11y)
-- [ ] `backend-principal-engineer` (Domain Synthesizer: orchestrates Node.js, TS, Databases, Distributed Systems, Queues)
 - [ ] `software-architect` (System Strategist: ADRs, System Boundaries, Scalability, Threat Modeling)
 
 ---

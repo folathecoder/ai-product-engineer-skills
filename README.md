@@ -1,6 +1,6 @@
 # AI Product Engineer Skills
 
-A curated repository of production-grade, authoritative AI agent skills designed for modern software engineering, architecture, and code review.
+A curated repository of production-grade, authoritative AI agent skills designed for modern software engineering, architecture, codebase onboarding, and code review.
 
 Each skill in this repository is crafted to turn any AI coding agent into a principal-level specialist, equipped with mechanical sympathy for underlying compilers and runtimes, strict safety and boundary discipline, and live-documentation verification protocols to prevent obsolescence.
 
@@ -8,9 +8,10 @@ Each skill in this repository is crafted to turn any AI coding agent into a prin
 
 ## Available Skills Matrix
 
-| Skill | Focus | Target Versions | Description |
+| Skill | Focus | Target Scope | Description |
 |---|---|---|---|
-| [`nextjs-principal-engineer`](./skills/nextjs-principal-engineer/) | Full-Stack Architecture, Development & Code Review | Next.js 14, 15, 16+ (React 19+) | App Router, Cache Components (`use cache`), Partial Prerendering (PPR), Server Actions, Data Access Layer (DAL), zero-trust security, Core Web Vitals, and P0–P3 code reviews. |
+| [`onboarding-engineer`](./skills/onboarding-engineer/) | Codebase Reconnaissance, DevEx & Bootstrapping | Universal (Any Repo/Monorepo) | Rapid cold-start repository reconnaissance, deterministic local environment setup, baseline health verification (types, lint, tests, build), and architectural reverse-engineering. |
+| [`nextjs-principal-engineer`](./skills/nextjs-principal-engineer/) | Full-Stack Architecture, Development & Review | Next.js 14, 15, 16+ (React 19+) | App Router, Cache Components (`use cache`), Partial Prerendering (PPR), Server Actions, Data Access Layer (DAL), zero-trust security, Core Web Vitals, and P0–P3 code reviews. |
 | [`typescript-principal-engineer`](./skills/typescript-principal-engineer/) | Type System Architecture, Modeling & Review | TypeScript 5.0–5.8+ | Zero-any soundness, Branded/Nominal types, Discriminated Unions with exhaustiveness, contravariant variance, `satisfies`, and strict compiler configurations. |
 | [`nodejs-principal-engineer`](./skills/nodejs-principal-engineer/) | High-Throughput Runtimes, I/O & Review | Node.js 20, 22, 24+ LTS | Libuv event loop mastery, stream backpressure, `node:stream/promises`, `AsyncLocalStorage`, native TypeScript type stripping, and Node permission model. |
 | [`javascript-principal-engineer`](./skills/javascript-principal-engineer/) | Language Mechanics, V8 Optimization & Review | ECMAScript ES2024–ES2026+ | V8 hidden classes (Shapes), Inline Caches (monomorphic optimization), garbage collection lifecycles, prototype pollution defense, and modern TC39 features. |
@@ -24,7 +25,7 @@ Every skill in this repository adheres to four uncompromising pillars:
 1. **Pre-Flight Version & Docs Protocol (Never Outdated)**: Before writing code or auditing a PR, the agent inspects `package.json` to identify installed runtime/compiler versions. When working with unfamiliar or newer APIs, the agent queries official documentation live (MDN, Node.js API, TypeScript Handbook, Next.js docs) rather than guessing signatures.
 2. **Dual-Mode Operation**: Dedicated workflows for **Feature Development** (building clean, idiomatic architectures from scratch) and **Code Review** (structured audits using a P0 Blocker → P3 Polish taxonomy with copy-pasteable diffs).
 3. **Progressive Disclosure**: A concise, actionable `SKILL.md` supported by a deep `references/` directory containing checklists, design patterns, and anti-pattern catalogs.
-4. **Interoperability**: Skills seamlessly reference each other across the stack (e.g. Next.js leveraging TypeScript and JavaScript principles; upcoming Frontend/Backend synthesizers orchestrating the foundation).
+4. **Interoperability**: Skills seamlessly reference each other across the stack (e.g. `onboarding-engineer` uses `nextjs-principal-engineer` or `nodejs-principal-engineer` once the stack is discovered; upcoming Frontend/Backend synthesizers orchestrate the foundation).
 
 ---
 
@@ -42,6 +43,7 @@ cp -R skills/* ~/.config/opencode/skills/
 OpenCode will automatically discover all installed skills:
 ```markdown
 <available_skills>
+  <skill><id>onboarding-engineer</id></skill>
   <skill><id>nextjs-principal-engineer</id></skill>
   <skill><id>typescript-principal-engineer</id></skill>
   <skill><id>nodejs-principal-engineer</id></skill>
@@ -61,6 +63,7 @@ cp -R path/to/skills/<skill-name> .opencode/skills/
 
 ## Roadmap
 
+- [x] `onboarding-engineer` (Codebase Reconnaissance & DevEx)
 - [x] `nextjs-principal-engineer` (Full-Stack React Framework)
 - [x] `typescript-principal-engineer` (Foundational Language)
 - [x] `nodejs-principal-engineer` (Foundational Runtime)
